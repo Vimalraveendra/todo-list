@@ -54,10 +54,14 @@ class App extends Component {
     this.setState({ inputItems: [] });
   };
 
+  handleCancel = ()=>{
+    this.setState({
+      item:""
+    })
+  }
+
   deleteItem = id => {
-    console.log(id);
     const filteredItems = this.state.inputItems.filter(item => item.id !== id);
-    console.log(filteredItems);
     this.setState({ inputItems: filteredItems });
   };
 
@@ -99,6 +103,7 @@ class App extends Component {
                 handleOnChange={this.handleOnChange}
                 handleSubmit={this.handleSubmit}
                 editItem={this.state.editItem}
+                handleCancel={this.handleCancel}
               />
 
               <TodoList
