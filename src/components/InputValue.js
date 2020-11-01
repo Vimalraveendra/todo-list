@@ -1,6 +1,6 @@
 	import React from 'react';
 	
-	const InputValue =({item,handleOnChange,handleSubmit,editItem})=>{
+	const InputValue =({item,handleOnChange,handleSubmit,editItem,handleCancel})=>{
 		
 			return (
 				<React.Fragment>
@@ -19,6 +19,7 @@
                         onChange={handleOnChange}
 						/>
 				 </div>
+				 <div className='input-group-prepend'>
 				   <button 
 				   type='submit'
 				    className={
@@ -27,7 +28,13 @@
                               }>
 				     {editItem ?'edit item':'add item'}
 
-				    </button>
+					</button>
+					{editItem?
+					<button className="btn btn-block btn-info text-uppercase mt-3" 
+					type="button"
+					onClick={handleCancel}
+					>Cancel</button>:null}
+					</div>
 				 </form>
 				</div>
 				</React.Fragment>
