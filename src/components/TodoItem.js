@@ -1,6 +1,6 @@
 	import React from 'react';
 	
-	const TodoItem =({item,deleteItem,id,handleEditItem})=>{
+	const TodoItem =({item,deleteItem,id,handleEditItem,index})=>{
 		
 			return (
 				<React.Fragment>
@@ -10,7 +10,7 @@
 				<h6>{item}</h6>
 				<div className='todo-icon'>
 				<span className='mx-2 text-success' 
-				onClick={()=> handleEditItem(id)}
+				onClick={()=> handleEditItem(id,index)}
 				> 
 				<i className='fas fa-pen'></i></span>
 				<span className='text-danger mx-2' 

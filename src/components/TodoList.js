@@ -9,13 +9,14 @@
 				 <ul className='list-group'>
 					<h3 className='text-capitalize text-center text-info'>todo list</h3>
 					
-						{  inputItems.map((item)=>{
+						{  inputItems.map((item,index)=>{
 							return<TodoItem 
 							key={item.id}
 							item={item.item}
 							id={item.id}
 							deleteItem={deleteItem}
 							handleEditItem={handleEditItem}
+							index={index}
 							/>
 						})
 							
