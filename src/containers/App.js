@@ -5,47 +5,47 @@ import InputValue from "../components/InputValue";
 import TodoList from "../components/TodoList";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import uuid from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 class App extends Component {
   state = {
     inputItems: [],
-    id: uuid(),
+    id: uuidv4(),
     item: "",
     editItem: false,
-    index:"",
-    action:0,
+    index: "",
+    action: 0,
   };
 
-  handleOnChange = e => {
+  handleOnChange = (e) => {
     this.setState({ item: e.target.value });
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     const newList = this.state.inputItems;
     const newItem = {
       id: this.state.id,
-      item: this.state.item
+      item: this.state.item,
     };
 
-    if(this.state.action!==0){
-       newList[this.state.index] =newItem;
-       this.setState({
+    if (this.state.action !== 0) {
+      newList[this.state.index] = newItem;
+      this.setState({
         inputItems: newList,
         item: "",
-        id: uuid(),
+        id: uuidv4(),
         editItem: false,
-        index:"",
-        action:0
+        index: "",
+        action: 0,
       });
-    }else{
+    } else {
       const updatedItems = [...this.state.inputItems, newItem];
       this.setState({
         inputItems: updatedItems,
         item: "",
-        id: uuid(),
-        editItem: false
+        id: uuidv4(),
+        editItem: false,
       });
     }
   };
@@ -54,18 +54,20 @@ class App extends Component {
     this.setState({ inputItems: [] });
   };
 
-  handleCancel = ()=>{
+  handleCancel = () => {
     this.setState({
-      item:""
-    })
-  }
+      item: "",
+    });
+  };
 
-  deleteItem = id => {
-    const filteredItems = this.state.inputItems.filter(item => item.id !== id);
+  deleteItem = (id) => {
+    const filteredItems = this.state.inputItems.filter(
+      (item) => item.id !== id
+    );
     this.setState({ inputItems: filteredItems });
   };
 
-  handleEditItem = (id,index) => {
+  handleEditItem = (id, index) => {
     // const filteredItems = this.state.inputItems.filter(item => item.id !== id);
 
     // const selectedItem = this.state.inputItems.find(item => item.id === id);
@@ -76,14 +78,14 @@ class App extends Component {
     //   editItem: true,
     //   id: id
     // });
-  
-    const selectedItem = this.state.inputItems.find(item => item.id === id);
+
+    const selectedItem = this.state.inputItems.find((item) => item.id === id);
     this.setState({
       item: selectedItem.item,
       editItem: true,
       id: id,
-      index:index,
-      action:1
+      index: index,
+      action: 1,
     });
   };
 
