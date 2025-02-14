@@ -57,6 +57,7 @@ class App extends Component {
   handleCancel = () => {
     this.setState({
       item: "",
+      inputItems: this.state.inputItems,
     });
   };
 

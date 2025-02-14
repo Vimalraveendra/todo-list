@@ -22,4 +22,14 @@
    font-family: 'Pacifico', cursive;
    color: #333;
   }
+  li {
+    border-radius: 5px;
+  }
+  li:hover{
+    cursor: pointer;
+  }
+
+  .input-group-text svg{
+    height: 38px;
+  }
 
