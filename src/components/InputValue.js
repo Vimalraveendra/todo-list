@@ -7,6 +7,7 @@ const InputValue = ({
   handleSubmit,
   editItem,
   handleCancel,
+  error,
 }) => {
   return (
     <React.Fragment>
@@ -47,6 +48,9 @@ const InputValue = ({
               </button>
             ) : null}
           </div>
+          {error && (
+            <p className="text-danger error">Please enter a valid value</p>
+          )}
         </form>
       </div>
     </React.Fragment>

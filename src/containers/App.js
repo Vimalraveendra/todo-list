@@ -15,14 +15,24 @@ class App extends Component {
     editItem: false,
     index: "",
     action: 0,
+    error: false,
   };
 
   handleOnChange = (e) => {
+    if (this.state.error) {
+      console.log("error");
+      this.setState({ error: false });
+    }
     this.setState({ item: e.target.value });
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
+    if (!this.state.item) {
+      console.log("error");
+      this.setState({ error: true });
+      return;
+    }
     const newList = this.state.inputItems;
     const newItem = {
       id: this.state.id,
@@ -58,6 +68,7 @@ class App extends Component {
     this.setState({
       item: "",
       inputItems: this.state.inputItems,
+      editItem: false,
     });
   };
 
@@ -107,6 +118,7 @@ class App extends Component {
                 handleSubmit={this.handleSubmit}
                 editItem={this.state.editItem}
                 handleCancel={this.handleCancel}
+                error={this.state.error}
               />
 
               <TodoList

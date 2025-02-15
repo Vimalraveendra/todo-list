@@ -2,8 +2,6 @@
   text-align: center;
 }
 
-
-
 .App-header {
   background-color: #282c34;
   min-height: 8vh;
@@ -31,5 +29,16 @@
 
   .input-group-text svg{
     height: 38px;
+  }
+  .text-danger  path{
+    fill:red !important
+  }
+  .text-danger path:hover{
+    opacity: 0.9;
+    fill:rgb(220, 81, 81)
+  }
+  .error{
+    margin:0px;
+    padding:5px;
   }
 
